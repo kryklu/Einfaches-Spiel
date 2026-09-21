@@ -13,13 +13,13 @@ public class Controller {
         view.getTxtSpielerzahl().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                rundeAuswerten();
             }
         });
         view.getbButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                nochEinmal();
             }
         });
     }
@@ -59,5 +59,12 @@ public class Controller {
         view.getLblRundenergebnis().setBackground(farbe);
     }
 
+    private void nochEinmal(){
+        view.getTxtSpielerzahl().setText("");
+        view.getTxtComputerzahl().setText("");
+        view.getLblRundenergebnis().setText("Ergebnis: ");
+        view.getLblGesamtpunkte().setBackground(Color.white);
+        view.getLblRundenergebnis().setBackground(Color.WHITE);
+    }
 
 }
