@@ -43,6 +43,11 @@ public class Controller {
         view.getTxtComputerzahl().setText(String.valueOf(model.getComputerZahl()));
         view.getLblGesamtpunkte().setText("Gesamtpunkte: " + model.getGesamtPunkte());
         view.getLblRundenergebnis().setText("Ergebnis: " + model.getRundenErgebnis());
+        if (model.hatGewonnen()) {
+            view.getLblGesamtpunkte().setText("Gesamtpunkte: " + model.getGesamtPunkte() + " – Gewonnen!");
+        } else if (model.hatVerloren()) {
+            view.getLblGesamtpunkte().setText("Gesamtpunkte: " + model.getGesamtPunkte() + " – Verloren!");
+        }
         Color farbe;
 
         if(model.getRundenErgebnis() < 0 || model.hatVerloren()){
@@ -57,6 +62,9 @@ public class Controller {
 
         view.getLblGesamtpunkte().setBackground(farbe);
         view.getLblRundenergebnis().setBackground(farbe);
+        view.getTxtSpielerzahl().setEditable(false);
+        view.getbButton().setEnabled(true);
+
     }
 
     private void nochEinmal(){
@@ -65,6 +73,8 @@ public class Controller {
         view.getLblRundenergebnis().setText("Ergebnis: ");
         view.getLblGesamtpunkte().setBackground(Color.white);
         view.getLblRundenergebnis().setBackground(Color.WHITE);
+        view.getTxtSpielerzahl().setEditable(true);
+        view.getbButton().setEnabled(false);
     }
 
 }
